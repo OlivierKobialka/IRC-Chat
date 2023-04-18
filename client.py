@@ -15,9 +15,12 @@ def receive():
                 client.send(nickname.encode("ascii"))
             else:
                 print(message)
+                if message.lower() == "quit":
+                    client.close()
+                    break
 
         except:
-            print("ERRROR!")
+            print("ERROR!")
             client.close()
             break
 
